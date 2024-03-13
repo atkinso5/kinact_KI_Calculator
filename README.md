@@ -1,23 +1,23 @@
 # kinact and KI Calculator
 
 ## Citations
-This code is free to use but please cite "Mader & Keillor, ACS Med. Chem. Lett. **2024**, *15*, xxxx" and the GitHub link when using it. <br>
+This code is free to use but please cite "Mader & Keillor, *ACS Med. Chem. Lett.* **2024**, *15*, xxxx" and the GitHub link when using it. <br>
 
 The Python code was developed and is maintained by Bethany Atkinson at [Dunad Therapeutics](https://www.dunadtx.com/).
 
 ## Overview
 
-The code implements the method described in Mader & Keillor, ACS Med. Chem. Lett. **2024**, *15*, xxxx for the calculation of kinact and KI. <br>
+The code implements the method described in Mader & Keillor, *ACS Med. Chem. Lett.* **2024**, *15*, xxxx for the calculation of kinact and KI. <br>
 
 Through the simulation of the reaction the predicted product concentration is calculated at the end of each IC50 experiment. The predicted product concentration is scaled to give a % signal. The kinact and KI values are determined by using scipy least_squares to optimise the predicted signal to the experimentally observed signal. 
 
 Compared to the Excel spreadsheet (referenced below) which can also be used to determine the kinact and KI values, the Python code uses [scipy least_squares](https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.least_squares.html#r20fc1df64af7-stir) rather than Excel's Solver to optimise the kinact and KI values. The Excel Solver uses the GRG (Generalised Reduced Gradient) non-linear algorithm. scipy least_squares uses the Trust Region Reflective algorithm for the optimisation problem. The two give very similar results.
 
-Additionally, the Python code calculates the response coefficient which has to be set manually when using the Excel spreadsheet to calculate the kinact and KI values. The response coefficient is calculated by making the predicted % signal equal to 100 when inhibitor concentration is 0 µM using the input/initial kinact and KI estimates. Once the kinact and KI values have been calculated the predicted signal with 0 µM should still be approximately equal to 100%.
+Additionally, the Python code calculates the response coefficient, which has to be set manually when using the Excel spreadsheet, to convert the predicted product *concentrations* into *normalised signal* values. The response coefficient is calculated by setting the predicted % signal equal to 100 when inhibitor concentration is 0 µM, using the input/initial kinact and KI estimates. Once the kinact and KI values have been calculated, the predicted signal with 0 µM should still be approximately equal to 100%.
 
 ## Excel Spreadsheet
 
-An example of the Excel spreadsheet which can also be used to calculate the kinact and KI values using the same method can be found in the 'Excel' folder. 
+An example of the Excel spreadsheet, which can also be used to calculate the kinact and KI values using the same method, can be found in the 'Excel' folder. 
 
 ## Dependencies
 - numpy
@@ -50,7 +50,7 @@ The inputs are:
 - PreIncVol: the pre-incubation volume (µL)
 - IncVol: the incubation volume (µL) after substrate addition.
 
-Optionally the starting kinact and KI values in min-1 and µM respectively can be added as inputs. These are initial guesses which go into the least_squares optimisation algorithm. If no starting kinact or KI value is added a default of 1 for each value will be used. <br>
+Optionally the starting kinact and KI values in min-1 and µM respectively can be added as inputs. These are initial guesses which go into the least_squares optimisation algorithm. If no starting kinact or KI value is added, a default of 1 for each value will be used. <br>
 
 The least_squares minimisation used to determine the kinact and KI values may find a local rather than a global minimum. Changing the input kinact and KI values may lead to different values that allow local convergence. 
 

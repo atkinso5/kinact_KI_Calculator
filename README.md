@@ -48,12 +48,12 @@ To run the code call an instance of the class: <br>
 `>>> calculated_kinact_KI = KineticParameterCalculator(array, AddSub, EnzConc, kcat, Km, PreIncVol, IncVol)` <br>
 <br>
 The inputs are:
-- a numpy array with 4 columns: Pre-incubation time (min), Incubation time (min), [Inhibitor] (µM), Signal (%)
+- a numpy array with 4 columns: Pre-incubation time (min), Incubation time (min), [Inhibitor] (µM), Signal (%).
 - AddSub: the substrate concentration (µM) used in the experiment. 
 - EnzConc: the enzyme concentration (µM) used in producing the IC50 curves.
-- kcat
-- Km
-- PreIncVol: the pre-incubation volume (µL)
+- kcat: the turnover number.
+- Km: Michaelis constant
+- PreIncVol: the pre-incubation volume (µL).
 - IncVol: the incubation volume (µL) after substrate addition.
 
 Optionally the starting kinact and KI values in min-1 and µM respectively can be added as inputs. These are initial guesses which go into the least_squares optimisation algorithm. If no starting kinact or KI value is added, a default of 1 for each value will be used. <br>

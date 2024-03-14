@@ -3,7 +3,11 @@
 ## Citations
 This code is free to use but please cite "Mader & Keillor, *ACS Med. Chem. Lett.* **2024**, *15*, xxxx" and the GitHub link when using it. <br>
 
-The Python code was developed and is maintained by Bethany Atkinson at [Dunad Therapeutics](https://www.dunadtx.com/).
+The Excel spreadsheet was developed and is maintained by Jeff Keillor.
+
+The Python code (based on the Excel spreadsheet) was developed and is maintained by Bethany Atkinson at [Dunad Therapeutics](https://www.dunadtx.com/). Please send all queries regarding the Python code to <bethany.atkinson@dunadtx.com> and <cloud@dunadtx.com>.
+
+This GitHub site is maintained by Bethany Atkinson, Jeff Keillor and Mirco Meniconi.
 
 ## Overview
 

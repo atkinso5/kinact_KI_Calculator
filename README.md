@@ -29,6 +29,8 @@ An example of the Excel spreadsheet, which can also be used to calculate the kin
 - matplotlib
 - pandas
 
+A conda environment is avaliable using the kinact_KI_calculator_env.yml file.
+
 ## Geting Started
 Clone the git repository.
 

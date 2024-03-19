@@ -71,13 +71,24 @@ The experimentally observed signal compared to the predicted signal can be plott
 
     ```
     df = pd.DataFrame(test.array, columns =['Pre-incubation time (min)', 'Incubation time (min)', '[Inhibitor] (µM)', 'Signal', 'Predicted signal'])
-    for i in df.groupby('Pre-incubation time (min)'):
-        plt.title('Pre-incubation time: {} mins '.format(str(i[0])))
-        plt.scatter(i[1]['[Inhibitor] (µM)'], i[1]['Signal'], label='Signal') #plot signal
-        plt.plot(i[1]['[Inhibitor] (µM)'], i[1]['Predicted signal'], label='Pred Signal', c='r', marker = 's') #plot predicted signal
-        plt.xscale('log') #set x-axis to log scale 
+    #plot the signal and predicted signal graphs 
+    for i in df.groupby('Pre-incubation time (min)'): 
+    
+        #to create a smooth line, predict the signal for an increased number of inhibitor concentrations
+        inhibitor_concs = np.logspace(np.log10(np.min(i[1]['[Inhibitor] (µM)'][i[1]['[Inhibitor] (µM)'] != 0])), np.log10(max(i[1]['[Inhibitor] (µM)'])), 50) #generate inhibitor concentrations log spaced
+        calc_pred_signal = [] 
+        for s in inhibitor_concs:
+            calc_pred_signal.append(kinact_KI_calculated.PreIncEndPoint([kinact_KI_calculated._kinact, kinact_KI_calculated._KI], i[1].iloc[0,0], i[1].iloc[0,1], s)* kinact_KI_calculated.response_coeff) #generate predicted signal using the calculated kinact and KI values for generated inhibitor concentrations 
+    
+        #plot the graph:
+        plt.title('Pre-incubation time (min): ' + str(i[0]))
+        plt.scatter(i[1]['[Inhibitor] (µM)'], i[1]['% Signal'], label='Signal') 
+        plt.scatter(i[1]['[Inhibitor] (µM)'], i[1]['% Predicted signal'], c='r', marker='s')
+        #plt.plot(i[1]['[Inhibitor] (µM)'], i[1]['Predicted signal'], label='Pred Signal', c='r', marker = 's') 
+        plt.plot(inhibitor_concs, calc_pred_signal, label='Pred Signal', c='r')
+        plt.xscale('log')
         plt.xlabel("Inhibitor Concentration (uM)")
-        plt.ylabel("Signal")
+        plt.ylabel("% Signal")
         plt.legend()
         plt.show()
     ```

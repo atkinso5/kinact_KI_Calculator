@@ -7,7 +7,7 @@ The Excel spreadsheet was developed and is maintained by Jeffrey Keillor (Univer
 
 The Python code (based on the Excel spreadsheet) was developed and is maintained by Bethany Atkinson at [Dunad Therapeutics](https://www.dunadtx.com/). Please send all queries regarding the Python code to <bethany.atkinson@dunadtx.com> and <mirco.meniconi@dunadtx.com>.
 
-This GitHub site is maintained by Bethany Atkinson, Jeff Keillor and Mirco Meniconi.
+This GitHub site is maintained by Bethany Atkinson, Jeffrey Keillor and Mirco Meniconi.
 
 ## Overview
 

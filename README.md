@@ -1,7 +1,7 @@
 # kinact and KI Calculator
 
 ## Citations
-This code is free to use but please cite "Mader & Keillor, *ACS Med. Chem. Lett.* **2024**, *15*, xxxx" and the GitHub link when using it. <br>
+This code is free to use but please cite "Mader & Keillor, *ACS Med. Chem. Lett.* **2024**, *15*, 731-738" and the GitHub link when using it. <br>
 
 The Excel spreadsheet was developed and is maintained by Jeffrey Keillor (University of Ottawa). (http://keillor-research-group.com)
 

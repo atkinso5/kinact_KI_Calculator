@@ -11,7 +11,7 @@ This GitHub site is maintained by Bethany Atkinson, Jeffrey Keillor and Mirco Me
 
 ## Overview
 
-The code implements the method described in Mader & Keillor, *ACS Med. Chem. Lett.* **2024**, *15*, xxxx for the calculation of kinact and KI. <br>
+The code implements the method described in Mader & Keillor, *ACS Med. Chem. Lett.* **2024**, *15*, 731-738 for the calculation of kinact and KI. <br>
 
 Through the simulation of the reaction the predicted product concentration is calculated at the end of each IC50 experiment. The predicted product concentration is scaled to give a % signal. The kinact and KI values are determined by using scipy least_squares to optimise the predicted signal to the experimentally observed signal. 
 
